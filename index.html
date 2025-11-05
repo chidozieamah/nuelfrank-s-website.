@@ -3,29 +3,8 @@
   <head>
     <!-- Cellos Connect -->
 <script id="chat-init" src="https://chat.cellosconnect.com/account/js/init.js?id=5166297"></script>
-    <div id="sb-articles">
-     <script src="https://chat.cellosconnect.com//script/js/min/jquery.min.js"></script>
-     <script id="sbinit" src="https://chat.cellosconnect.com//scriptjs/main.js"></script>
-     <?php
-     $ch = curl_init('https://chat.cellosconnect.com//script/include/api.php?articles=true&' . (empty($_GET['category']) ? (empty($_GET['article_id']) ? (empty($_GET['search']) ? '' : '&search=' . urlencode($_GET['search'])) : '&article_id=' . $_GET['article_id']) : '&category=' . $_GET['category']) . (empty($_GET['lang']) ? '' : '&lang=' . $_GET['lang']));
-     $parameters = [
-         CURLOPT_RETURNTRANSFER => true,
-         CURLOPT_SSL_VERIFYPEER => false,
-         CURLOPT_USERAGENT => 'Support Board',
-         CURLOPT_POST => true,
-         CURLOPT_CONNECTTIMEOUT => 5,
-         CURLOPT_POSTFIELDS => http_build_query([
-                                   'token'=> '', 
-                                   'function' => 'init-articles'
-                               ])
-     ];
-     curl_setopt_array($ch, $parameters);
-     $response = curl_exec($ch);
-     curl_close($ch);
-     echo $response;
-     ?>
-</div>
-   
+   <script>var SB_ARTICLES_PAGE = true;</script>
+<div id="sb-articles" class="sb-loading"></div>
     <meta charset="utf-8">
     <title>Nuel Frank</title>
     <link rel="stylesheet" href="CSS/styles.css">
@@ -83,6 +62,7 @@
 
   </body>
 </html>
+
 
 
 
